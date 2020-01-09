@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Spring-applicaiton</title>
 </head>
 <body>
-<h1> Success </h1>	
+<h1> Hello Jenkins !! </h1>	
 </body>
 </html>
