@@ -13,9 +13,9 @@ import demo.customerservice.service.CustomerService;
 public class HelloController {
 	@Autowired
 	private CustomerService customerService;
-    @GetMapping("/hello")
-    public String hello(Model model) {
-    	model.addAttribute("customers", customerService.retrieveCustomers());
-        return "hello";
-    }
+//    @GetMapping("/hello")
+//    public String hello(Model model) {
+//    	model.addAttribute("customers", customerService.retrieveCustomers());
+//        return "hello";
+//    }
 }

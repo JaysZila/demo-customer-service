@@ -28,6 +28,10 @@ public class Customer {
 		this.id = id;
 	}
 
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
