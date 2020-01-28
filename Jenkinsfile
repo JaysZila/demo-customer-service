@@ -10,14 +10,14 @@ node {
          
    stage('build war file') {
          withMaven(maven: 'maven-3'){
-         sh 'mvn clean install'
+         mvn clean install
        }
    }
    stage('build and run docker container') {
            if (backup_status==true) {
                echo "use backup build no."
                docker.build("${IMAGE_NAME}:${BACKUP_IMAGE_NO}") 
-               sh 'docker rm -f ${container_name}'
+               docker rm -f ${container_name}
                docker.image("${IMAGE_NAME}:${BACKUP_IMAGE_NO}").run("-p 80:8080 --link mongodb --name ${container_name}")
 
            } else {
