@@ -1,6 +1,6 @@
 node {
    def IMAGE_NAME = "customer-service"
-   def BACKUP_IMAGE_NO =  "14"
+   def BACKUP_IMAGE_ID =  "14"
    def backup_status = false
    def container_name = "customer-service-app"
    
@@ -9,13 +9,13 @@ node {
          
    stage('build war file') {
          withMaven(maven: 'maven-3'){
-         mvn clean install
+         sh 'mvn clean install'
        }
    }
    stage('build and run docker container') {
            if (backup_status) {
                echo "use backup build no."
-               docker.image("${IMAGE_NAME}:${BACKUP_IMAGE_NO}").run("-p 80:8080 --link mongodb --name ${container_name}")
+               docker.image("${IMAGE_NAME}:${BACKUP_IMAGE_ID}").run("-p 80:8080 --link mongodb --name ${container_name}")
 
            } else {
                echo "use current build no."
