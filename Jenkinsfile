@@ -1,7 +1,7 @@
 node {
    def IMAGE_NAME = "customer-service"
-   def BACKUP_IMAGE_ID =  "14"
-   def backup_status = false
+   def BACKUP_IMAGE_ID =  "5"
+   def backup_status = true
    def container_name = "customer-service-app"
    
    stage('clone project from github')
