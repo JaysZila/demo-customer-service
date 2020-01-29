@@ -1,4 +1,5 @@
 node {
+
    def IMAGE_NAME = "customer-service"
    def BACKUP_IMAGE_ID =  "5"
    def backup_status = false
@@ -13,14 +14,14 @@ node {
        }
    }
    stage('build and run docker container') {
-   			   sh 'docker rm -f customer-service-app'
+   			   sh "docker rm -f ${container_name}"
            if (backup_status) {
                echo "use backup build no."
                docker.image("${IMAGE_NAME}:${BACKUP_IMAGE_ID}").run("-p 80:8080 --link mongodb --name ${container_name}")
 
            } else {
                echo "use current build no."
-               docker.build("${IMAGE_NAME}:${env.BUILD_NUMBER}") 
+               docker.build("${IMAGE_NAME}:${env.BUILD_NUMBER}")
                docker.image("${IMAGE_NAME}:${env.BUILD_NUMBER}").run("-p 80:8080 --link mongodb --name ${container_name}")
            }
       }
