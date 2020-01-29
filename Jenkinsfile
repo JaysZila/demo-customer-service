@@ -13,7 +13,7 @@ node {
        }
    }
    stage('build and run docker container') {
-   			   sh 'docker rm -f ${container_name}' ${container_name}
+   			   sh 'docker rm -f customer-service-app'
            if (backup_status) {
                echo "use backup build no."
                docker.image("${IMAGE_NAME}:${BACKUP_IMAGE_ID}").run("-p 80:8080 --link mongodb --name ${container_name}")
