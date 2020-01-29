@@ -19,6 +19,7 @@ node {
 
            } else {
                echo "use current build no."
+               hostname
                docker.build("${IMAGE_NAME}:${env.BUILD_NUMBER}") 
                docker.image("${IMAGE_NAME}:${env.BUILD_NUMBER}").run("-p 80:8080 --link mongodb --name ${container_name}")
            }
