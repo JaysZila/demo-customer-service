@@ -6,7 +6,6 @@ node {
    
    stage('clone project from github')
    git "https://github.com/JaysZila/demo-customer-service.git"
-   //checkout scm
          
    stage('build war file') {
          withMaven(maven: 'maven-3'){
