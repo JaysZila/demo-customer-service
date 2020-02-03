@@ -3,7 +3,7 @@ node {
    def IMAGE_NAME = "customer-service"
    def BACKUP_IMAGE_ID =  "5"
    def backup_status = false
-   def container_name = "customer-service-app"
+   def container_name = "cuaa-service-app"
    
    stage('clone project from github')
    git "https://github.com/JaysZila/demo-customer-service.git"
